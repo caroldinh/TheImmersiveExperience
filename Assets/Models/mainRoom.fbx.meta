@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 2bc08789c56c1304eae34cc8b0b71609
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -4356040962277014912
+    second: hallway|hallwayAction
   externalObjects: {}
   materials:
     materialImportMode: 2
