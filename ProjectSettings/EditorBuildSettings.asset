@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ImmersiveRoom.unity
+    guid: 85fceb6fe06537d43b0f5200e40d105e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 093a6c911f94d0446860a8dda432d4bc, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bcc568611be52b9408cf00c7ebf8dee8, type: 2}
