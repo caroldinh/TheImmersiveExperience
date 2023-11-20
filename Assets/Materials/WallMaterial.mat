@@ -56,6 +56,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_959845cbc1d64d5eadc3e4e6c85d1681_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 53aaa6104ed593243b55eb96a2094b5f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanarArrayCustomFunction_bd68de2cf7bb4f208b2ce8d3eb40555c_Texture_5:
+        m_Texture: {fileID: 2800000, guid: a426f460a77b4e442b656c8029f0b8e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanarRGBCustomFunction_bd68de2cf7bb4f208b2ce8d3eb40555c_Texture_5:
         m_Texture: {fileID: 2800000, guid: a426f460a77b4e442b656c8029f0b8e7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
