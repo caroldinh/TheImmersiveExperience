@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93a578a9ff5af14f981725ed16210c1, type: 3}
+  m_Name: RoomAssetManager
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 57a936611e51ec346871d0b1b7533588, type: 3}
+  - {fileID: 8300000, guid: 27c8a9dd214f2a34db6881b08dd5fc27, type: 3}
+  - {fileID: 8300000, guid: a86a1e8bd2704654da78e3ae9f7acad8, type: 3}
+  - {fileID: 8300000, guid: 3aef2bcf9af76b440a13ea486297c755, type: 3}
+  - {fileID: 8300000, guid: edefd6df65af74a4bbb139631426cb11, type: 3}
+  - {fileID: 8300000, guid: 65d95636f08325d4d82e80109cf37621, type: 3}
+  - {fileID: 8300000, guid: 317d2b7d1c6832441b0f1e9401a38d12, type: 3}
+  - {fileID: 8300000, guid: dfa9ef86db6d3d643a152df00bad73a3, type: 3}
+  artists:
+  - {fileID: 11400000, guid: 4af49b24ab8d5464f884462d3b665a92, type: 2}
+  wallShaders:
+  - {fileID: 2100000, guid: 93ed01405b24a1543b45ce3ba7102bb5, type: 2}
+  imagePrefab: {fileID: 111126066264277866, guid: 238c8dd40de914f4db53d6cc637c671d, type: 3}
