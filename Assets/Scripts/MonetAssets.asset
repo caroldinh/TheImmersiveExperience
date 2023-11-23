@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fb90936b6f99f4490f8aa4afd4ffdd, type: 3}
+  m_Name: MonetAssets
+  m_EditorClassIdentifier: 
+  artistName: Claude Monet
+  sprites:
+  - {fileID: 21300000, guid: 5cbcbcd2f758a34429d01b5119028ea7, type: 3}
+  - {fileID: 21300000, guid: 6ed7a396e3c10c746a63b2a79426ae98, type: 3}
+  - {fileID: 21300000, guid: 34b18bf807846c7468c8ed4954836bd4, type: 3}
+  - {fileID: 21300000, guid: 1f0d770e1ecaed649b23404113d5beb2, type: 3}
+  - {fileID: 21300000, guid: 0d0ce77cfdb3978439231fa2e906a626, type: 3}
+  backgrounds:
+  - {fileID: 2800000, guid: ae21b38021aca33458aa937d1bbd8816, type: 3}
+  - {fileID: 2800000, guid: 4d09d301a16b7d94080442e571b6904d, type: 3}
+  - {fileID: 2800000, guid: 8398b3b5ccb105e4d884850a8babdcfd, type: 3}
+  - {fileID: 2800000, guid: fe0fe20639d37f343862b6e8123b5d21, type: 3}
+  - {fileID: 2800000, guid: 4ce7d1c4f9f379a4bbec1712b49b5f49, type: 3}
+  - {fileID: 2800000, guid: 1c5596c7a5474f14ea9379ac8b20faab, type: 3}
+  - {fileID: 2800000, guid: 0746431f14f10c748b222e8333f814b6, type: 3}
+  - {fileID: 2800000, guid: fe78f81c5ac918643a8722ec76fd1309, type: 3}
+  - {fileID: 2800000, guid: 4ada59fc2e0cafb4d916cc55e238b4c8, type: 3}
+  - {fileID: 2800000, guid: ecaf6fe8f10c036449acf2e62523e0a1, type: 3}
+  - {fileID: 2800000, guid: d1cd7d7545dadbb4fadb3eaa5ca76258, type: 3}
+  - {fileID: 2800000, guid: 655aaf9c1dbddfe4c8201efde544ec30, type: 3}
+  - {fileID: 2800000, guid: 416f4733062c9ee46a47e1fea9e6b62b, type: 3}
+  - {fileID: 2800000, guid: 77e2a28317215b844bb9bff877799936, type: 3}
+  - {fileID: 2800000, guid: 3e05085160b2dd34c8c7679436ec05ef, type: 3}
+  - {fileID: 2800000, guid: 4999614685d55af4cb9d22695cdbb705, type: 3}
+  - {fileID: 2800000, guid: 2ef84eb3b5d94c74da5f30a1e772e568, type: 3}
+  - {fileID: 2800000, guid: 609420f86929202479bf18ebfd8ec43c, type: 3}
+  - {fileID: 2800000, guid: 6775e9f5ee835714581b3ae78f3cbab9, type: 3}
+  - {fileID: 2800000, guid: 4a202f4b2681971409b9fd7fee0436f6, type: 3}
+  - {fileID: 2800000, guid: af68cc3956cc64d4a8d1251bd7e3f1d5, type: 3}
+  - {fileID: 2800000, guid: 93d652fdf6cde564f8ea03c94d51ea21, type: 3}
+  - {fileID: 2800000, guid: 6c02313b15c9a644f8bdcbfaee08f462, type: 3}
+  - {fileID: 2800000, guid: d2f15ecb9a92cee4891601a7a6ffb210, type: 3}
+  - {fileID: 2800000, guid: b633c598628cd0a4caa633572b41103b, type: 3}

@@ -8,6 +8,6 @@ public class RoomAssets : ScriptableObject
 {
     public AudioClip[] audioClips;
     public ArtistAsset[] artists;
-    public Material[] wallShaders;
+    public Material[] wallMaterials;
     public GameObject imagePrefab;
 }
