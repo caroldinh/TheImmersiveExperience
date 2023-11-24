@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ArtistAsset : ScriptableObject
 {
-    public string artistName;
+    public string firstName;
+    public string lastName;
     public Sprite[] sprites;
-    public Texture2D[] backgrounds;
+    public Sprite[] backgrounds;
 }

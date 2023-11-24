@@ -35,9 +35,7 @@ public class RigInteractions : MonoBehaviour
         if (other.gameObject.name == "End Curtain")
         {
             other.gameObject.GetComponent<AudioSource>().Play();
-            gameObject.transform.position = _startPosition;
-            gameObject.transform.rotation = _startRotation;
-            _mainRoomController.GenerateRoom();
+            ResetPlayer();
         } else if (other.gameObject.name == "Through Curtain" || other.gameObject.name == "Start Curtain")
         {
             other.gameObject.GetComponent<AudioSource>().Play();
@@ -49,5 +47,12 @@ public class RigInteractions : MonoBehaviour
             rb.AddRelativeForce(Vector3.forward * 5);
             rb.isKinematic = true;
         }
+    }
+
+    public void ResetPlayer()
+    {
+        gameObject.transform.position = _startPosition;
+        gameObject.transform.rotation = _startRotation;
+        _mainRoomController.GenerateRoom();
     }
 }

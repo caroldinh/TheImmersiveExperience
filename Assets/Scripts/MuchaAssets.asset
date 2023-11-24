@@ -12,29 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fb90936b6f99f4490f8aa4afd4ffdd, type: 3}
   m_Name: MuchaAssets
   m_EditorClassIdentifier: 
-  artistName: Alphonse Mucha
+  firstName: Alphonse
+  lastName: Mucha
   sprites:
   - {fileID: 21300000, guid: e762dee1e3de69f47a0f4c8af2ae7d85, type: 3}
   - {fileID: 21300000, guid: 493c9146576530b47ba2c63f05190d39, type: 3}
   - {fileID: 21300000, guid: b3ccfba9179c0d24b87e6cf7a57ffc03, type: 3}
   - {fileID: 21300000, guid: 2d4b1bf22b5300041a70302af53df4ef, type: 3}
   backgrounds:
-  - {fileID: 2800000, guid: a426f460a77b4e442b656c8029f0b8e7, type: 3}
-  - {fileID: 2800000, guid: 7c40320dbd267b649853989aa6b983d2, type: 3}
-  - {fileID: 2800000, guid: 1f5ead38f1e50b046b96c6836a465ab0, type: 3}
-  - {fileID: 2800000, guid: 9d1f27fa4b97bcc4580b02ddee59d0d8, type: 3}
-  - {fileID: 2800000, guid: c9b6e410f707b294398ae8f220ad43b7, type: 3}
-  - {fileID: 2800000, guid: 0e58393da6ff45143b67a9c7f8255de9, type: 3}
-  - {fileID: 2800000, guid: 329f9c735d3325841b36b266af9dcc9d, type: 3}
-  - {fileID: 2800000, guid: af2c27664afa25740a2137d63154162d, type: 3}
-  - {fileID: 2800000, guid: a8963d06e74c32848971975f6c05ed6e, type: 3}
-  - {fileID: 2800000, guid: 53aaa6104ed593243b55eb96a2094b5f, type: 3}
-  - {fileID: 2800000, guid: 84b21a1e6d7795e4894169c3a7214396, type: 3}
-  - {fileID: 2800000, guid: 5297881b4af92c54297fbe66dab59a92, type: 3}
-  - {fileID: 2800000, guid: 9095db2178fa05046a7ba9541c65e0c6, type: 3}
-  - {fileID: 2800000, guid: 65a5897a31899f54b883474b0bc743d4, type: 3}
-  - {fileID: 2800000, guid: d0fa7a1c67d9a774d8bb7f24d6ba9a53, type: 3}
-  - {fileID: 2800000, guid: 1e4fbf88d31d1ca449f53de22d2aa058, type: 3}
-  - {fileID: 2800000, guid: 877c7e7620cfea54c986e36969debba9, type: 3}
-  - {fileID: 2800000, guid: 1171f32197c5178499d006a9976864a8, type: 3}
-  - {fileID: 2800000, guid: 4b3c754b37127f243812230ec4edb189, type: 3}
+  - {fileID: 21300000, guid: a426f460a77b4e442b656c8029f0b8e7, type: 3}
+  - {fileID: 21300000, guid: 7c40320dbd267b649853989aa6b983d2, type: 3}
+  - {fileID: 21300000, guid: 1f5ead38f1e50b046b96c6836a465ab0, type: 3}
+  - {fileID: 21300000, guid: 9d1f27fa4b97bcc4580b02ddee59d0d8, type: 3}
+  - {fileID: 21300000, guid: c9b6e410f707b294398ae8f220ad43b7, type: 3}
+  - {fileID: 21300000, guid: 0e58393da6ff45143b67a9c7f8255de9, type: 3}
+  - {fileID: 21300000, guid: 329f9c735d3325841b36b266af9dcc9d, type: 3}
+  - {fileID: 21300000, guid: af2c27664afa25740a2137d63154162d, type: 3}
+  - {fileID: 21300000, guid: a8963d06e74c32848971975f6c05ed6e, type: 3}
+  - {fileID: 21300000, guid: 53aaa6104ed593243b55eb96a2094b5f, type: 3}
+  - {fileID: 21300000, guid: 84b21a1e6d7795e4894169c3a7214396, type: 3}
+  - {fileID: 21300000, guid: 5297881b4af92c54297fbe66dab59a92, type: 3}
+  - {fileID: 21300000, guid: 9095db2178fa05046a7ba9541c65e0c6, type: 3}
+  - {fileID: 21300000, guid: 65a5897a31899f54b883474b0bc743d4, type: 3}
+  - {fileID: 21300000, guid: d0fa7a1c67d9a774d8bb7f24d6ba9a53, type: 3}
+  - {fileID: 21300000, guid: 1e4fbf88d31d1ca449f53de22d2aa058, type: 3}
+  - {fileID: 21300000, guid: 877c7e7620cfea54c986e36969debba9, type: 3}
+  - {fileID: 21300000, guid: 1171f32197c5178499d006a9976864a8, type: 3}
+  - {fileID: 21300000, guid: 4b3c754b37127f243812230ec4edb189, type: 3}
