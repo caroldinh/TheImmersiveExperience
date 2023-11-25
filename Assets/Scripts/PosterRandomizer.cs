@@ -16,6 +16,7 @@ public class PosterRandomizer : MonoBehaviour
     public Material lightFont;
     public Material darkFont;
     public GameObject posterPrefab;
+    public TextMeshProUGUI tagOnline;
 
     private List<GameObject> posters = new List<GameObject>();
     private ArtistAsset artist;
@@ -44,34 +45,72 @@ public class PosterRandomizer : MonoBehaviour
         artist = newArtist;
         title = newTitle;
         InstantiatePoster(gameObject, true);
-        for (int i = 0; i < Random.Range(5, 15); i++)
+        for (int i = 0; i < Random.Range(5, 10); i++)
         {
             GameObject newPoster = Instantiate(posterPrefab, posterCanvas.transform);
             InstantiatePoster(newPoster, false);
             posters.Add(newPoster);
         }
+
+        string GenerateHandle(String title)
+        {
+            string[] experience =
+            {
+                "Immersive", "Chamber", "Exhibition", "Exhibit", "Gallery", "Experience", "Tour", "Cinema"
+            };
+            foreach (string word in experience)
+            {
+                if (title.IndexOf(word) > 0)
+                {
+                    return word;
+                }
+            }
+            return "Experience";
+        }
+        string[] separators = { "", ".", "_", "-" };
+        string ending = GenerateHandle(newTitle);
+        string separator = separators[Random.Range(0, separators.Length)];
+        string hashtag = newTitle.Replace(" ", "");
+        if (hashtag.IndexOf(":") > 0)
+        {
+            hashtag = hashtag.Substring(0, hashtag.IndexOf(":"));
+        }
+        tagOnline.text = "";
+        tagOnline.text += "@" + newArtist.firstName + separator + newArtist.lastName + separator + ending;
+        tagOnline.text += "\n#" + hashtag;
     }
 
     public void InstantiatePoster(GameObject newPoster, bool isMainPoster = true)
     {
         TextMeshProUGUI posterTitle = newPoster.GetComponentInChildren<TextMeshProUGUI>();
         Image posterBackground = newPoster.GetComponentInChildren<Image>();
-        RectTransform parentRect = posterBackground.transform.parent.GetComponent<RectTransform>();
+        RectTransform parentRect = newPoster.GetComponent<RectTransform>();
+        posterBackground.sprite = artist.backgrounds[Random.Range(0, artist.backgrounds.Length)];
 
         if (!isMainPoster)
         {
-            //parentRect.sizeDelta = new Vector2(Random.Range(5, 10), Random.Range(5, 10));
-            //parentRect.transform.position = new Vector3(Random.Range(0, 10), Random.Range(0, 10), 1);
-            //parentRect.transform.rotation = new Quaternion(0, 0, Random.Range(-10, 10), 0);
-            RectTransform newPosterRect = newPoster.GetComponent<RectTransform>();
-            newPosterRect.localPosition = new Vector2(Random.Range(0, 10),
-                Random.Range(0, 10));
-            newPosterRect.sizeDelta = new Vector2(Random.Range(5, 10), Random.Range(5, 10));
+            parentRect.sizeDelta = new Vector2(Random.Range(5, 10), Random.Range(5, 10));
+            parentRect.anchoredPosition = new Vector2(Random.Range(0, posterCanvasRect.rect.width - parentRect.rect.width),
+                Random.Range(0, posterCanvasRect.rect.height - parentRect.rect.height));
+            parentRect.localRotation = Quaternion.Euler(0, 0, Random.Range(-10, 10));
+            posterTitle.fontSize = Random.Range(0.3f, 1f);
+
+            string[] posterTextTemplates =
+            {
+                "[TITLE]",
+                "VISIT [TITLE]",
+                "VISIT [TITLE] TODAY",
+                "[TITLE] ON DISPLAY NOW",
+                "TICKETS ON SALE FOR [TITLE]",
+                "ONCE IN A LIFETIME EXPERIENCE: [TITLE]",
+                "IMMERSE YOURSELF: [TITLE]",
+                "BUY TICKETS TO [TITLE] NOW",
+            };
+            posterTitle.text = posterTextTemplates[Random.Range(0, posterTextTemplates.Length)].Replace("[TITLE]", title);
         }
 
         else
         {
-            posterBackground.sprite = artist.backgrounds[Random.Range(0, artist.backgrounds.Length)];
             float newPosterScale = 1f;
             if (posterBackground.sprite.bounds.size.x < parentRect.rect.width)
             {
@@ -84,8 +123,8 @@ public class PosterRandomizer : MonoBehaviour
             posterBackground.rectTransform.sizeDelta = new Vector2(
                 newPosterScale * posterBackground.sprite.bounds.size.x,
                 newPosterScale * posterBackground.sprite.bounds.size.y);
+            posterTitle.text = title;
         }
-        posterTitle.text = title;
 
         Color[] SampleImagePixels(Texture2D texture)
         {
