@@ -17,8 +17,10 @@ public class PosterRandomizer : MonoBehaviour
     public Material darkFont;
     public GameObject posterPrefab;
     public TextMeshProUGUI tagOnline;
-
+    public Texture2D[] posterTextures;
+    
     private List<GameObject> posters = new List<GameObject>();
+    private List<Material> posterMaterials = new List<Material>();
     private ArtistAsset artist;
     private string title;
     private RectTransform posterCanvasRect;
@@ -42,13 +44,19 @@ public class PosterRandomizer : MonoBehaviour
            poster.DestroySafely(); 
         }
         posters.Clear();
+        foreach (Material mat in posterMaterials)
+        {
+            mat.DestroySafely();
+        }
+        posterMaterials.Clear();
         artist = newArtist;
         title = newTitle;
-        InstantiatePoster(gameObject, true);
-        for (int i = 0; i < Random.Range(5, 10); i++)
+        InstantiatePoster(gameObject);
+        int numPosters = Random.Range(3, 8);
+        for (int i = 0; i < numPosters; i++)
         {
             GameObject newPoster = Instantiate(posterPrefab, posterCanvas.transform);
-            InstantiatePoster(newPoster, false);
+            InstantiatePoster(newPoster, (float) i / numPosters);
             posters.Add(newPoster);
         }
 
@@ -80,20 +88,24 @@ public class PosterRandomizer : MonoBehaviour
         tagOnline.text += "\n#" + hashtag;
     }
 
-    public void InstantiatePoster(GameObject newPoster, bool isMainPoster = true)
+    public void InstantiatePoster(GameObject newPoster, float posterX = -1f)
     {
         TextMeshProUGUI posterTitle = newPoster.GetComponentInChildren<TextMeshProUGUI>();
         Image posterBackground = newPoster.GetComponentInChildren<Image>();
         RectTransform parentRect = newPoster.GetComponent<RectTransform>();
-        posterBackground.sprite = artist.backgrounds[Random.Range(0, artist.backgrounds.Length)];
+        Material newPosterMaterial = Instantiate(posterBackground.material);
+        newPosterMaterial.SetTexture("_PosterTexture", posterTextures[Random.Range(0, posterTextures.Length)]);
+        newPosterMaterial.SetTexture("_MainTexture", artist.backgrounds[Random.Range(0, artist.backgrounds.Length)].texture);
+        posterBackground.material = newPosterMaterial;
+        posterMaterials.Append(newPosterMaterial);
 
-        if (!isMainPoster)
+        if (posterX >= 0)
         {
+            float xPos = posterX * posterCanvasRect.rect.width + Random.Range(-1, 1) - 1f;
             parentRect.sizeDelta = new Vector2(Random.Range(5, 10), Random.Range(5, 10));
-            parentRect.anchoredPosition = new Vector2(Random.Range(0, posterCanvasRect.rect.width - parentRect.rect.width),
+            parentRect.anchoredPosition = new Vector2(xPos,
                 Random.Range(0, posterCanvasRect.rect.height - parentRect.rect.height));
             parentRect.localRotation = Quaternion.Euler(0, 0, Random.Range(-10, 10));
-            posterTitle.fontSize = Random.Range(0.3f, 1f);
 
             string[] posterTextTemplates =
             {
@@ -111,6 +123,7 @@ public class PosterRandomizer : MonoBehaviour
 
         else
         {
+            posterBackground.sprite = artist.backgrounds[Random.Range(0, artist.backgrounds.Length)];
             float newPosterScale = 1f;
             if (posterBackground.sprite.bounds.size.x < parentRect.rect.width)
             {
