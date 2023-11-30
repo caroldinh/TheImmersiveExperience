@@ -56,7 +56,6 @@ public class RoomController : MonoBehaviour
         _currentArtist = roomAssetManager.artists[Random.Range(0, roomAssetManager.artists.Length)];
         _exhibitionTitle = generateExhibitionTitle();
         PosterRandomizer.ResetPosters(_currentArtist, _exhibitionTitle);
-        Debug.Log(_exhibitionTitle);
         musicSource.clip = roomAssetManager.audioClips[Random.Range(0, roomAssetManager.audioClips.Length)];
         musicSource.Play();
         Renderer renderer = gameObject.GetComponent<Renderer>();
@@ -108,7 +107,7 @@ public class RoomController : MonoBehaviour
         string[] opener =
         {
             " ", "Experience ", "Imagine ", "Beyond ", "Through the Eyes of ", "Re-Imagine ", "Relive ", "Marvelous ", "Fantastic ",
-            "Visions Of ", "Rethink ", "Re-imagine ", "Journey Into ", "Discover ", "Uncover ", "Exclusively "
+            "Visions Of ", "Rethink ", "Re-imagine ", "Journey Into ", "Discover ", "Uncover ", "Exclusively ", "Reinventing ", 
         };
         string[] adjective =
         {
