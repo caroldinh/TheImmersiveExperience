@@ -22,6 +22,7 @@ public class PosterRandomizer : MonoBehaviour
     private List<GameObject> posters = new List<GameObject>();
     private List<Material> posterMaterials = new List<Material>();
     private ArtistAsset artist;
+    private TMP_FontAsset fontAsset;
     private string title;
     private RectTransform posterCanvasRect;
     
@@ -37,7 +38,7 @@ public class PosterRandomizer : MonoBehaviour
         
     }
 
-    public void ResetPosters(ArtistAsset newArtist, string newTitle)
+    public void ResetPosters(ArtistAsset newArtist, string newTitle, TMP_FontAsset newFont)
     {
         foreach (GameObject poster in posters)
         {
@@ -51,6 +52,7 @@ public class PosterRandomizer : MonoBehaviour
         posterMaterials.Clear();
         artist = newArtist;
         title = newTitle;
+        fontAsset = newFont;
         InstantiatePoster(gameObject);
         int numPosters = Random.Range(3, 8);
         for (int i = 0; i < numPosters; i++)
@@ -159,13 +161,18 @@ public class PosterRandomizer : MonoBehaviour
             avgBrightness += (pix.r + pix.b + pix.g) / 3;
         }
         avgBrightness /= (posterBackground.sprite.texture.width * posterBackground.sprite.texture.height);
+        posterTitle.font = fontAsset;
+        posterTitle.fontMaterial.SetFloat(ShaderUtilities.ID_FaceDilate, 0.5f);
+        posterTitle.fontMaterial.SetFloat(ShaderUtilities.ID_OutlineWidth, 0.5f);
         if (avgBrightness > 0.5)
         {
-            posterTitle.fontMaterial = darkFont;
+            posterTitle.fontMaterial.SetColor(ShaderUtilities.ID_FaceColor, Color.black);
+            posterTitle.fontMaterial.SetColor(ShaderUtilities.ID_OutlineColor, Color.white);
         }
         else
         {
-            posterTitle.fontMaterial = lightFont;
+            posterTitle.fontMaterial.SetColor(ShaderUtilities.ID_FaceColor, Color.white);
+            posterTitle.fontMaterial.SetColor(ShaderUtilities.ID_OutlineColor, Color.black);
         }
     }
 }

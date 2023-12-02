@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Meta.WitAi;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
@@ -19,6 +20,7 @@ public class RoomController : MonoBehaviour
     
     private ArtistAsset _currentArtist;
     private AnimationType _currAnimationType;
+    private TMP_FontAsset _currFont;
     private string _exhibitionTitle;
     private List<GameObject> _wallImages = new List<GameObject>();
     private int _roomCount = -1;
@@ -54,8 +56,9 @@ public class RoomController : MonoBehaviour
         }
         _wallImages.Clear();
         _currentArtist = roomAssetManager.artists[Random.Range(0, roomAssetManager.artists.Length)];
+        _currFont = roomAssetManager.fontAssets[Random.Range(0, roomAssetManager.fontAssets.Length)];
         _exhibitionTitle = generateExhibitionTitle();
-        PosterRandomizer.ResetPosters(_currentArtist, _exhibitionTitle);
+        PosterRandomizer.ResetPosters(_currentArtist, _exhibitionTitle, _currFont);
         musicSource.clip = roomAssetManager.audioClips[Random.Range(0, roomAssetManager.audioClips.Length)];
         musicSource.Play();
         Renderer renderer = gameObject.GetComponent<Renderer>();
