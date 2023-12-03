@@ -28,9 +28,10 @@ MonoBehaviour:
   wallMaterials:
   - {fileID: 2100000, guid: b785300e230899b4882c5f93b3a0429a, type: 2}
   - {fileID: 2100000, guid: 93ed01405b24a1543b45ce3ba7102bb5, type: 2}
+  - {fileID: 2100000, guid: 33d397d206e2c944c82ab7dc481b17d9, type: 2}
   imagePrefab: {fileID: 111126066264277866, guid: 238c8dd40de914f4db53d6cc637c671d, type: 3}
   fontAssets:
-  - {fileID: 11400000, guid: a82b24dfc8cd2eb43812246a8127fc1d, type: 2}
+  - {fileID: 11400000, guid: 4a140a2ee3f14084291488fb9c048e6e, type: 2}
   - {fileID: 11400000, guid: 5b23774bc7dafde4f9ebd6c440a5c5de, type: 2}
   - {fileID: 11400000, guid: 02947d58052b7464e9eb5c4e16958388, type: 2}
   - {fileID: 11400000, guid: 64051d2f789a3b543a7df6203e13ec03, type: 2}

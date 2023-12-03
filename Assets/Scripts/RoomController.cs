@@ -17,6 +17,8 @@ public class RoomController : MonoBehaviour
     public AudioSource musicSource;
     public float transitionSpeed = 0.01f;
     public PosterRandomizer PosterRandomizer;
+    public TextMeshProUGUI Score;
+    public GameObject[] roomProps;
     
     private ArtistAsset _currentArtist;
     private AnimationType _currAnimationType;
@@ -68,7 +70,9 @@ public class RoomController : MonoBehaviour
         _currAnimationType = (AnimationType) Random.Range(0, 1);
         foreach (Canvas wallCanvas in wallCanvases)
         {
-            for (int i = 0; i < Random.Range(3, 10); i++)
+            int numImages = Random.Range(5, 12);
+            float wallCanvasWidth = wallCanvas.GetComponent<RectTransform>().rect.width;
+            for (int i = 0; i < numImages; i++)
             {
                 GameObject newImage = Instantiate(roomAssetManager.imagePrefab, wallCanvas.transform);
                 
@@ -78,11 +82,25 @@ public class RoomController : MonoBehaviour
 
                 RectTransform newRectTransform = newImage.GetComponent<RectTransform>();
                 newRectTransform.anchoredPosition =
-                    new Vector2(Random.Range(0, wallCanvas.GetComponent<RectTransform>().rect.width), 0);
+                    new Vector2(((float)i / numImages) * wallCanvasWidth, 0);
                 
                 _wallImages.Add(newImage);
             }
         }
+        foreach (GameObject prop in roomProps)
+        {
+            if (Random.Range(0, 2) == 0)
+            {
+                Debug.Log(prop.name + " Active");
+                prop.SetActive(true);
+            }
+            else
+            {
+                Debug.Log(prop.name + " Inactive");
+                prop.SetActive(false);
+            }
+        }
+        Score.text = _roomCount.ToString();
     }
 
     public ArtistAsset getCurrentArtist()
@@ -127,7 +145,7 @@ public class RoomController : MonoBehaviour
 
         string getArtistName()
         {
-            if (Random.Range(0, 1) == 0)
+            if (Random.Range(0, 2) == 0)
             {
                 return _currentArtist.firstName + " " + _currentArtist.lastName;
             }
