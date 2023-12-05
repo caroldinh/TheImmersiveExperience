@@ -5,6 +5,7 @@ using System.Linq;
 using Meta.WitAi;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 using Random=UnityEngine.Random;
@@ -14,11 +15,12 @@ public class RoomController : MonoBehaviour
     enum AnimationType { GLIDE = 0, FADE = 1 }
     public RoomAssets roomAssetManager;
     public Canvas[] wallCanvases;
-    public AudioSource musicSource;
+    public AudioSource[] musicSources;
     public float transitionSpeed = 0.01f;
     public PosterRandomizer PosterRandomizer;
     public TextMeshProUGUI Score;
     public GameObject[] roomProps;
+    public InputActionReference inputMap;
     
     private ArtistAsset _currentArtist;
     private AnimationType _currAnimationType;
@@ -26,16 +28,26 @@ public class RoomController : MonoBehaviour
     private string _exhibitionTitle;
     private List<GameObject> _wallImages = new List<GameObject>();
     private int _roomCount = -1;
-
+    
     // Start is called before the first frame update
     void Start()
     {
+        inputMap.action.Enable();
         GenerateRoom();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (inputMap.action.IsPressed())
+        {
+            Debug.Log("Is pressed");
+        }
+
+        if (inputMap.action.triggered)
+        {
+            Debug.Log("triggered");
+        }
         foreach (GameObject image in _wallImages)
         {
             RectTransform imageTransform = image.GetComponent<RectTransform>();
@@ -61,8 +73,12 @@ public class RoomController : MonoBehaviour
         _currFont = roomAssetManager.fontAssets[Random.Range(0, roomAssetManager.fontAssets.Length)];
         _exhibitionTitle = generateExhibitionTitle();
         PosterRandomizer.ResetPosters(_currentArtist, _exhibitionTitle, _currFont);
-        musicSource.clip = roomAssetManager.audioClips[Random.Range(0, roomAssetManager.audioClips.Length)];
-        musicSource.Play();
+        AudioClip clip = roomAssetManager.audioClips[Random.Range(0, roomAssetManager.audioClips.Length)];
+        foreach (AudioSource musicSource in musicSources)
+        {
+            musicSource.clip = clip;
+            musicSource.Play();
+        }
         Renderer renderer = gameObject.GetComponent<Renderer>();
         renderer.material = roomAssetManager.wallMaterials[Random.Range(0, roomAssetManager.wallMaterials.Length)];
         renderer.material.SetTexture("_BaseTexture", _currentArtist.backgrounds[Random.Range(0, _currentArtist.backgrounds.Length)].texture);
@@ -89,14 +105,12 @@ public class RoomController : MonoBehaviour
         }
         foreach (GameObject prop in roomProps)
         {
-            if (Random.Range(0, 2) == 0)
+            if (Random.Range(0, 3) > 0)
             {
-                Debug.Log(prop.name + " Active");
                 prop.SetActive(true);
             }
             else
             {
-                Debug.Log(prop.name + " Inactive");
                 prop.SetActive(false);
             }
         }
